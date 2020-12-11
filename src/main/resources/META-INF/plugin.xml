@@ -6,6 +6,11 @@
     <depends>com.intellij.modules.platform</depends>
 
     <extensions defaultExtensionNs="com.intellij">
+        <fileType name="elambda"
+                  implementationClass="com.github.lambdamix.elambda.ELambdaFileType"
+                  fieldName="INSTANCE"
+                  language="elambda"
+                  extensions="elambda"/>
     </extensions>
 
     <actions>
