@@ -1,6 +1,7 @@
 <idea-plugin>
     <id>com.github.lambdamix.intellij-elambda</id>
-    <name>elambda (extended lambda calculus) language</name>
+    <name>Elambda (Extended Lambda Calculus) Language</name>
+    <vendor>https://github.com/ilya-klyuchnikov/intellij-elambda</vendor>
 
     <depends>com.intellij.modules.platform</depends>
 
