@@ -7,57 +7,57 @@ public class ELambdaPsiImplUtil {
 
     @NotNull
     public static String getName(ConstructorExpr element) {
-        return element.getUid().getText();
+        return element.getCtrName().getText();
     }
 
     @NotNull
     public static String getName(DataConstructor element) {
-        return element.getUid().getText();
+        return element.getCtrName().getText();
     }
 
     @NotNull
     public static String getName(Pattern element) {
-        return element.getUid().getText();
+        return element.getPatName().getText();
     }
 
     @NotNull
     public static String getName(RemoteConstructorExpr element) {
-        return element.getRemoteCtr().getUid().getText();
+        return element.getRemoteCtr().getCtrName().getText();
     }
 
     @NotNull
     public static String getName(RemoteTypeConstructor element) {
-        return element.getRemoteTypeId().getUid().getText();
+        return element.getCtrName().getText();
     }
 
     @NotNull
     public static String getName(RemoteVariableExpr element) {
-        return element.getLid().getText();
+        return element.getVarName().getText();
     }
 
     @NotNull
     public static String getName(TypeConstructor element) {
-        return element.getUid().getText();
+        return element.getCtrName().getText();
     }
 
     @NotNull
     public static String getName(TypeVariable element) {
-        return element.getLid().getText();
+        return element.getVarName().getText();
     }
 
     @NotNull
     public static String getName(TypeVariableDef element) {
-        return element.getLid().getText();
+        return element.getVarName().getText();
     }
 
     @NotNull
     public static String getName(Variable element) {
-        return element.getLid().getText();
+        return element.getVarName().getText();
     }
 
 
     @NotNull
     public static String getName(VariableExpr element) {
-        return element.getLid().getText();
+        return element.getVarName().getText();
     }
 }
