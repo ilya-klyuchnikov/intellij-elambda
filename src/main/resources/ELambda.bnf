@@ -61,6 +61,7 @@ type_variable ::= LID {
     extends=type
     methods=[
         getName
+        getReference
         varName="/LID"
     ]
 }

@@ -1,0 +1,1 @@
+data List(a) = Nil() | Cons(<caret>a, List(a));

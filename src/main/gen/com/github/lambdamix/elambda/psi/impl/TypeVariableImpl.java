@@ -9,6 +9,7 @@ import com.intellij.psi.PsiElementVisitor;
 import com.intellij.psi.util.PsiTreeUtil;
 import static com.github.lambdamix.elambda.ELambdaTypes.*;
 import com.github.lambdamix.elambda.psi.*;
+import com.github.lambdamix.elambda.psi.reference.TypeVariableReference;
 
 public class TypeVariableImpl extends TypeImpl implements TypeVariable {
 
@@ -36,6 +37,11 @@ public class TypeVariableImpl extends TypeImpl implements TypeVariable {
   @Override
   public @NotNull String getName() {
     return ELambdaPsiImplUtil.getName(this);
+  }
+
+  @Override
+  public @NotNull TypeVariableReference getReference() {
+    return ELambdaPsiImplUtil.getReference(this);
   }
 
   @Override

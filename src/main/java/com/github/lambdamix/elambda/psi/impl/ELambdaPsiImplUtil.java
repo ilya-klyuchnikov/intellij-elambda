@@ -1,6 +1,7 @@
 package com.github.lambdamix.elambda.psi.impl;
 
 import com.github.lambdamix.elambda.psi.*;
+import com.github.lambdamix.elambda.psi.reference.TypeVariableReference;
 import org.jetbrains.annotations.NotNull;
 
 public class ELambdaPsiImplUtil {
@@ -43,6 +44,11 @@ public class ELambdaPsiImplUtil {
     @NotNull
     public static String getName(TypeVariable element) {
         return element.getVarName().getText();
+    }
+
+    @NotNull
+    public static TypeVariableReference getReference(@NotNull TypeVariable element) {
+        return new TypeVariableReference(element);
     }
 
     @NotNull
