@@ -83,6 +83,7 @@ remote_type_constructor ::= remote_type_id top_types_ {
     extends=type
     methods=[
         getName
+        getReference
         ctrName="/remote_type_id/UID"
         mod="/remote_type_id/mod"
     ]

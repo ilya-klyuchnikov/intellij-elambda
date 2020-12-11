@@ -1,0 +1,1 @@
+data IntList() = IntList(remoteTypeConstructorAux.<caret>List(Int()));

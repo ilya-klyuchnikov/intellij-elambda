@@ -4,6 +4,7 @@ package com.github.lambdamix.elambda.psi;
 import java.util.List;
 import org.jetbrains.annotations.*;
 import com.intellij.psi.PsiElement;
+import com.github.lambdamix.elambda.psi.reference.RemoteTypeConstructorReference;
 
 public interface RemoteTypeConstructor extends Type {
 
@@ -20,6 +21,8 @@ public interface RemoteTypeConstructor extends Type {
   PsiElement getParRight();
 
   @NotNull String getName();
+
+  @NotNull RemoteTypeConstructorReference getReference();
 
   @NotNull
   PsiElement getCtrName();

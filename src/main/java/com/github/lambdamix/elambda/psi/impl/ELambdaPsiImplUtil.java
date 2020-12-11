@@ -1,8 +1,11 @@
 package com.github.lambdamix.elambda.psi.impl;
 
 import com.github.lambdamix.elambda.psi.*;
+import com.github.lambdamix.elambda.psi.reference.RemoteTypeConstructorReference;
 import com.github.lambdamix.elambda.psi.reference.TypeConstructorReference;
 import com.github.lambdamix.elambda.psi.reference.TypeVariableReference;
+import com.intellij.openapi.util.TextRange;
+import com.intellij.psi.PsiElement;
 import org.jetbrains.annotations.NotNull;
 
 public class ELambdaPsiImplUtil {
@@ -30,6 +33,11 @@ public class ELambdaPsiImplUtil {
     @NotNull
     public static String getName(RemoteTypeConstructor element) {
         return element.getCtrName().getText();
+    }
+
+    @NotNull
+    public static RemoteTypeConstructorReference getReference(RemoteTypeConstructor element) {
+        return new RemoteTypeConstructorReference(element);
     }
 
     @NotNull
@@ -76,5 +84,16 @@ public class ELambdaPsiImplUtil {
     @NotNull
     public static String getName(VariableExpr element) {
         return element.getVarName().getText();
+    }
+
+    /// Utils
+    @NotNull
+    private static TextRange rangeInParent(@NotNull TextRange parent, @NotNull TextRange child) {
+        int start = child.getStartOffset() - parent.getStartOffset();
+        return TextRange.create(start, start + child.getLength());
+    }
+
+    public static TextRange rangeForReference(@NotNull PsiElement owner, @NotNull PsiElement ref) {
+        return rangeInParent(owner.getTextRange(), ref.getTextRange());
     }
 }

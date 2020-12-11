@@ -1,9 +1,7 @@
 package com.github.lambdamix.elambda;
 
-import com.github.lambdamix.elambda.psi.TypeConstructor;
-import com.github.lambdamix.elambda.psi.TypeDefinition;
-import com.github.lambdamix.elambda.psi.TypeVariable;
-import com.github.lambdamix.elambda.psi.TypeVariableDef;
+import com.github.lambdamix.elambda.psi.*;
+import com.github.lambdamix.elambda.psi.reference.RemoteTypeConstructorReference;
 import com.github.lambdamix.elambda.psi.reference.TypeConstructorReference;
 import com.github.lambdamix.elambda.psi.reference.TypeVariableReference;
 import com.intellij.psi.PsiElement;
@@ -14,6 +12,18 @@ public class ELambdaResolveTest extends BasePlatformTestCase {
     @Override
     protected String getTestDataPath() {
         return "src/test/testData/reference";
+    }
+
+    public void testRemoteTypeConstructor() {
+        myFixture.configureByFiles(getFileName(), getFileNameAux());
+        PsiElement id = myFixture.getFile().findElementAt(myFixture.getCaretOffset());
+        RemoteTypeId remoteTypeId = (RemoteTypeId) id.getParent();
+        RemoteTypeConstructor typeConstructor = (RemoteTypeConstructor) remoteTypeId.getParent();
+        RemoteTypeConstructorReference reference = typeConstructor.getReference();
+        TypeDefinition typeDefinition = reference.resolve();
+        assertNotNull(typeDefinition);
+        assertEquals(typeConstructor.getName(), typeDefinition.getName());
+        assertEquals(getFileNameAux(), typeDefinition.getContainingFile().getName());
     }
 
     public void testTypeConstructor() {
@@ -38,5 +48,9 @@ public class ELambdaResolveTest extends BasePlatformTestCase {
 
     private String getFileName() {
         return getTestName(true) + ".elambda";
+    }
+
+    private String getFileNameAux() {
+        return getTestName(true) + "Aux.elambda";
     }
 }
