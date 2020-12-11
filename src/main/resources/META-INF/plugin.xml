@@ -11,6 +11,10 @@
                   fieldName="INSTANCE"
                   language="elambda"
                   extensions="elambda"/>
+
+        <lang.parserDefinition
+                language="elambda"
+                implementationClass="com.github.lambdamix.elambda.ELambdaParserDefinition" />
     </extensions>
 
     <actions>
