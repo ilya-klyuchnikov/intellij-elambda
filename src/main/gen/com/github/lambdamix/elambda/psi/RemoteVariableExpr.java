@@ -18,4 +18,7 @@ public interface RemoteVariableExpr extends Expr {
 
   @NotNull String getName();
 
+  @NotNull
+  PsiElement getVarName();
+
 }

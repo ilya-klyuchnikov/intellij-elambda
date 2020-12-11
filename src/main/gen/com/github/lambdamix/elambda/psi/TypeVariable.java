@@ -12,4 +12,7 @@ public interface TypeVariable extends Type {
 
   @NotNull String getName();
 
+  @NotNull
+  PsiElement getVarName();
+
 }

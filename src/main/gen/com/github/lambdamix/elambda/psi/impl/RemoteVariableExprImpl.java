@@ -50,4 +50,10 @@ public class RemoteVariableExprImpl extends ExprImpl implements RemoteVariableEx
     return ELambdaPsiImplUtil.getName(this);
   }
 
+  @Override
+  @NotNull
+  public PsiElement getVarName() {
+    return getLid();
+  }
+
 }

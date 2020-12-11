@@ -21,4 +21,10 @@ public interface RemoteTypeConstructor extends Type {
 
   @NotNull String getName();
 
+  @NotNull
+  PsiElement getCtrName();
+
+  @NotNull
+  Mod getMod();
+
 }

@@ -21,4 +21,10 @@ public interface RemoteConstructorExpr extends Expr {
 
   @NotNull String getName();
 
+  @NotNull
+  PsiElement getCtrName();
+
+  @NotNull
+  Mod getMod();
+
 }

@@ -45,4 +45,10 @@ public class RemoteCtrImpl extends ASTWrapperPsiElement implements RemoteCtr {
     return findNotNullChildByType(UID);
   }
 
+  @Override
+  @NotNull
+  public PsiElement getCtrName() {
+    return getUid();
+  }
+
 }

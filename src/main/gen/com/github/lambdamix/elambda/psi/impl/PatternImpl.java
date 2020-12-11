@@ -56,4 +56,10 @@ public class PatternImpl extends ASTWrapperPsiElement implements Pattern {
     return ELambdaPsiImplUtil.getName(this);
   }
 
+  @Override
+  @NotNull
+  public PsiElement getPatName() {
+    return getUid();
+  }
+
 }

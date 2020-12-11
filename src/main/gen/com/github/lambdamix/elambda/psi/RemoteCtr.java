@@ -16,4 +16,7 @@ public interface RemoteCtr extends PsiElement {
   @NotNull
   PsiElement getUid();
 
+  @NotNull
+  PsiElement getCtrName();
+
 }

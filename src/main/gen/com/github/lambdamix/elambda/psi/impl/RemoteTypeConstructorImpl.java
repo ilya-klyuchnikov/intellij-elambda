@@ -56,4 +56,18 @@ public class RemoteTypeConstructorImpl extends TypeImpl implements RemoteTypeCon
     return ELambdaPsiImplUtil.getName(this);
   }
 
+  @Override
+  @NotNull
+  public PsiElement getCtrName() {
+    RemoteTypeId p1 = getRemoteTypeId();
+    return p1.getUid();
+  }
+
+  @Override
+  @NotNull
+  public Mod getMod() {
+    RemoteTypeId p1 = getRemoteTypeId();
+    return p1.getMod();
+  }
+
 }

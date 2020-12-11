@@ -56,4 +56,10 @@ public class DataConstructorImpl extends ASTWrapperPsiElement implements DataCon
     return ELambdaPsiImplUtil.getName(this);
   }
 
+  @Override
+  @NotNull
+  public PsiElement getCtrName() {
+    return getUid();
+  }
+
 }

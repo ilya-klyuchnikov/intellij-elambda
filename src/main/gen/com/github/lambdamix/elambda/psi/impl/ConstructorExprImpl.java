@@ -56,4 +56,10 @@ public class ConstructorExprImpl extends ExprImpl implements ConstructorExpr {
     return ELambdaPsiImplUtil.getName(this);
   }
 
+  @Override
+  @NotNull
+  public PsiElement getCtrName() {
+    return getUid();
+  }
+
 }

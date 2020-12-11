@@ -38,4 +38,10 @@ public class VariableImpl extends ASTWrapperPsiElement implements Variable {
     return ELambdaPsiImplUtil.getName(this);
   }
 
+  @Override
+  @NotNull
+  public PsiElement getVarName() {
+    return getLid();
+  }
+
 }

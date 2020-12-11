@@ -21,4 +21,7 @@ public interface ConstructorExpr extends Expr {
 
   @NotNull String getName();
 
+  @NotNull
+  PsiElement getCtrName();
+
 }

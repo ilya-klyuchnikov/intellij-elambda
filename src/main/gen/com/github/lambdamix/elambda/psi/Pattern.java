@@ -21,4 +21,7 @@ public interface Pattern extends PsiElement {
 
   @NotNull String getName();
 
+  @NotNull
+  PsiElement getPatName();
+
 }

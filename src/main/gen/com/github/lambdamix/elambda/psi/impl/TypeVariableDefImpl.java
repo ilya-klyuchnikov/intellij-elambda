@@ -38,4 +38,10 @@ public class TypeVariableDefImpl extends ASTWrapperPsiElement implements TypeVar
     return ELambdaPsiImplUtil.getName(this);
   }
 
+  @Override
+  @NotNull
+  public PsiElement getVarName() {
+    return getLid();
+  }
+
 }

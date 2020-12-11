@@ -56,4 +56,18 @@ public class RemoteConstructorExprImpl extends ExprImpl implements RemoteConstru
     return ELambdaPsiImplUtil.getName(this);
   }
 
+  @Override
+  @NotNull
+  public PsiElement getCtrName() {
+    RemoteCtr p1 = getRemoteCtr();
+    return p1.getUid();
+  }
+
+  @Override
+  @NotNull
+  public Mod getMod() {
+    RemoteCtr p1 = getRemoteCtr();
+    return p1.getMod();
+  }
+
 }

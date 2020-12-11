@@ -33,4 +33,10 @@ public class ModImpl extends ASTWrapperPsiElement implements Mod {
     return findNotNullChildByType(LID);
   }
 
+  @Override
+  @NotNull
+  public PsiElement getModName() {
+    return getLid();
+  }
+
 }

@@ -56,4 +56,10 @@ public class TypeConstructorImpl extends TypeImpl implements TypeConstructor {
     return ELambdaPsiImplUtil.getName(this);
   }
 
+  @Override
+  @NotNull
+  public PsiElement getCtrName() {
+    return getUid();
+  }
+
 }

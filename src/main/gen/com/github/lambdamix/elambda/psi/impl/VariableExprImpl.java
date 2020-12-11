@@ -38,4 +38,10 @@ public class VariableExprImpl extends ExprImpl implements VariableExpr {
     return ELambdaPsiImplUtil.getName(this);
   }
 
+  @Override
+  @NotNull
+  public PsiElement getVarName() {
+    return getLid();
+  }
+
 }

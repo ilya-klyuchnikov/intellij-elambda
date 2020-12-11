@@ -21,4 +21,7 @@ public interface TypeConstructor extends Type {
 
   @NotNull String getName();
 
+  @NotNull
+  PsiElement getCtrName();
+
 }

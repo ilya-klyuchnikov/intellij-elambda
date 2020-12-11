@@ -12,4 +12,7 @@ public interface VariableExpr extends Expr {
 
   @NotNull String getName();
 
+  @NotNull
+  PsiElement getVarName();
+
 }

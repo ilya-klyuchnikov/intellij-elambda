@@ -21,4 +21,7 @@ public interface DataConstructor extends PsiElement {
 
   @NotNull String getName();
 
+  @NotNull
+  PsiElement getCtrName();
+
 }

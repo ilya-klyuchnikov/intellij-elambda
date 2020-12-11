@@ -10,4 +10,7 @@ public interface Mod extends PsiElement {
   @NotNull
   PsiElement getLid();
 
+  @NotNull
+  PsiElement getModName();
+
 }

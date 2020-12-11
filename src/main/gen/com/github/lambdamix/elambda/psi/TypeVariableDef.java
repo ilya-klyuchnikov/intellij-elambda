@@ -12,4 +12,7 @@ public interface TypeVariableDef extends PsiElement {
 
   @NotNull String getName();
 
+  @NotNull
+  PsiElement getVarName();
+
 }
