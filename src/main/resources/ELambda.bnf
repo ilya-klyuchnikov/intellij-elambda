@@ -1,0 +1,82 @@
+{
+  generate = [ token-accessors="yes" ]
+
+  parserClass="com.github.lambdamix.elambda.ELambdaParser"
+
+  extends="com.intellij.extapi.psi.ASTWrapperPsiElement"
+
+  psiVisitorName="ELambdaVisitor"
+  psiImplClassSuffix="Impl"
+  psiPackage="com.github.lambdamix.elambda.psi"
+  psiImplPackage="com.github.lambdamix.elambda.psi.impl"
+
+  elementTypeHolderClass="com.github.lambdamix.elambda.ELambdaTypes"
+  elementTypeClass="com.github.lambdamix.elambda.psi.ELambdaElementType"
+  tokenTypeClass="com.github.lambdamix.elambda.psi.ELambdaTokenType"
+  psiImplUtilClass="com.github.lambdamix.elambda.psi.impl.ELambdaPsiImplUtil"
+
+  tokens = [
+    KW_LAM       = "lam"
+    KW_CASE      = "case"
+    KW_DATA      = "data"
+    KW_OF        = "of"
+    KW_WHERE     = "where"
+    PAR_LEFT     = "("
+    PAR_RIGHT    = ")"
+    CURLY_LEFT   = "{"
+    CURLY_RIGHT  = "}"
+    ARROW        = "->"
+    SEMI         = ";"
+    DOT          = "."
+    COMMA        = ","
+    OP_OR        = "|"
+    OP_EQ        = "="
+    ARROW        = "->"
+  ]
+
+  extends(".*_expr")=expr
+}
+
+elambdaFile ::= (type_definition | binding | COMMENT)*
+
+type_definition ::= 'data' UID type_variable_defs_ '=' data_constructors_ ';'
+private type_variable_defs_ ::=  '(' ')' | '(' type_variable_def (','  type_variable_def)* ')'
+private data_constructors_ ::= data_constructor ('|' data_constructor)*
+
+data_constructor ::= UID top_types_
+private top_types_ ::= '('  ')' | '(' type (',' type)* ')'
+
+type_variable_def ::= LID
+type_variable ::= LID {
+    extends=type
+}
+type_constructor ::= UID top_types_ {
+    extends=type
+}
+remote_type_id ::= mod '.' LID
+remote_type_constructor ::= remote_type_id top_types_ {
+    extends=type
+}
+type ::= remote_type_constructor | type_constructor | type_variable
+
+mod ::= LID
+remote_ctr ::= mod '.' UID
+
+binding ::= variable '=' expr ';'
+variable ::= LID
+
+expr ::= remote_constructor_expr | app_expr | remote_variable_expr | variable_expr | constructor_expr | lambda_expr | case_expr | paren_expr
+private paren_expr ::= '(' expr ')'
+app_expr ::= (remote_variable_expr | variable_expr | paren_expr) exprs_
+private exprs_ ::= '('  ')' |  '(' expr (',' expr)* ')'
+remote_variable_expr ::= mod '.' LID
+variable_expr ::= LID
+constructor_expr ::= UID exprs_
+remote_constructor_expr ::= remote_ctr exprs_
+lambda_expr ::= 'lam' variables_ '->' expr
+case_expr ::= 'case' expr 'of' '{' branch* '}'
+
+branch ::= pattern '->' expr ';'
+pattern ::= UID variables_
+
+private variables_ ::= '('  ')' | '(' variable (',' variable)* ')'
