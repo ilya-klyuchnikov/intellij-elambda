@@ -4,7 +4,7 @@ import com.intellij.testFramework.ParsingTestCase;
 
 public class ELambdaParsingTest extends ParsingTestCase {
     public ELambdaParsingTest() {
-        super("", "elambda", new ELambdaParserDefinition());
+        super("", "elambda", true, new ELambdaParserDefinition());
     }
 
     public void testSimple() {

@@ -37,6 +37,6 @@ public class ELambdaResolveTest extends BasePlatformTestCase {
     }
 
     private String getFileName() {
-        return getTestName(false) + ".elambda";
+        return getTestName(true) + ".elambda";
     }
 }
