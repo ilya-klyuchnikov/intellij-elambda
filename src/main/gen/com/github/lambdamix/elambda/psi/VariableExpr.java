@@ -10,4 +10,6 @@ public interface VariableExpr extends Expr {
   @NotNull
   PsiElement getLid();
 
+  @NotNull String getName();
+
 }

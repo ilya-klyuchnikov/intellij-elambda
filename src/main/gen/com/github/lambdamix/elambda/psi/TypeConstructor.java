@@ -19,4 +19,6 @@ public interface TypeConstructor extends Type {
   @NotNull
   PsiElement getUid();
 
+  @NotNull String getName();
+
 }

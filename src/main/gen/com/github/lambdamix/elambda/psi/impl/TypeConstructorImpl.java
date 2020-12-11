@@ -51,4 +51,9 @@ public class TypeConstructorImpl extends TypeImpl implements TypeConstructor {
     return findNotNullChildByType(UID);
   }
 
+  @Override
+  public @NotNull String getName() {
+    return ELambdaPsiImplUtil.getName(this);
+  }
+
 }

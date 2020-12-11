@@ -51,4 +51,9 @@ public class DataConstructorImpl extends ASTWrapperPsiElement implements DataCon
     return findNotNullChildByType(UID);
   }
 
+  @Override
+  public @NotNull String getName() {
+    return ELambdaPsiImplUtil.getName(this);
+  }
+
 }

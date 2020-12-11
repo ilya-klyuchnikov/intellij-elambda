@@ -33,4 +33,9 @@ public class TypeVariableDefImpl extends ASTWrapperPsiElement implements TypeVar
     return findNotNullChildByType(LID);
   }
 
+  @Override
+  public @NotNull String getName() {
+    return ELambdaPsiImplUtil.getName(this);
+  }
+
 }

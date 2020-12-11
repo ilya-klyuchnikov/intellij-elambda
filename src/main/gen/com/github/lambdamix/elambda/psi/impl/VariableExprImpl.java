@@ -33,4 +33,9 @@ public class VariableExprImpl extends ExprImpl implements VariableExpr {
     return findNotNullChildByType(LID);
   }
 
+  @Override
+  public @NotNull String getName() {
+    return ELambdaPsiImplUtil.getName(this);
+  }
+
 }

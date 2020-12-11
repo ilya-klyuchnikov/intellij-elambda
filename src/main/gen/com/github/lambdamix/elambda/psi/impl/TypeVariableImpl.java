@@ -33,4 +33,9 @@ public class TypeVariableImpl extends TypeImpl implements TypeVariable {
     return findNotNullChildByType(LID);
   }
 
+  @Override
+  public @NotNull String getName() {
+    return ELambdaPsiImplUtil.getName(this);
+  }
+
 }

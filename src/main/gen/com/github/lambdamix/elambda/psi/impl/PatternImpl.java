@@ -51,4 +51,9 @@ public class PatternImpl extends ASTWrapperPsiElement implements Pattern {
     return findNotNullChildByType(UID);
   }
 
+  @Override
+  public @NotNull String getName() {
+    return ELambdaPsiImplUtil.getName(this);
+  }
+
 }

@@ -51,4 +51,9 @@ public class ConstructorExprImpl extends ExprImpl implements ConstructorExpr {
     return findNotNullChildByType(UID);
   }
 
+  @Override
+  public @NotNull String getName() {
+    return ELambdaPsiImplUtil.getName(this);
+  }
+
 }

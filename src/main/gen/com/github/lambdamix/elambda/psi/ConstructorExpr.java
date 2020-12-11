@@ -19,4 +19,6 @@ public interface ConstructorExpr extends Expr {
   @NotNull
   PsiElement getUid();
 
+  @NotNull String getName();
+
 }

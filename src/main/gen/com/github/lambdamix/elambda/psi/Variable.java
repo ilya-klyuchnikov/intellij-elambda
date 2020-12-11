@@ -10,4 +10,6 @@ public interface Variable extends PsiElement {
   @NotNull
   PsiElement getLid();
 
+  @NotNull String getName();
+
 }

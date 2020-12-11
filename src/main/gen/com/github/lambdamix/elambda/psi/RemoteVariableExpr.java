@@ -16,4 +16,6 @@ public interface RemoteVariableExpr extends Expr {
   @NotNull
   PsiElement getLid();
 
+  @NotNull String getName();
+
 }

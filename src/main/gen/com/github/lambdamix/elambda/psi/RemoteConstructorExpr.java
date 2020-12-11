@@ -19,4 +19,6 @@ public interface RemoteConstructorExpr extends Expr {
   @NotNull
   PsiElement getParRight();
 
+  @NotNull String getName();
+
 }

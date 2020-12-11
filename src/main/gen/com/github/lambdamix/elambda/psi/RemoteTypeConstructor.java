@@ -19,4 +19,6 @@ public interface RemoteTypeConstructor extends Type {
   @NotNull
   PsiElement getParRight();
 
+  @NotNull String getName();
+
 }

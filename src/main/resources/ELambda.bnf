@@ -43,19 +43,26 @@ type_definition ::= 'data' UID type_variable_defs_ '=' data_constructors_ ';'
 private type_variable_defs_ ::=  '(' ')' | '(' type_variable_def (','  type_variable_def)* ')'
 private data_constructors_ ::= data_constructor ('|' data_constructor)*
 
-data_constructor ::= UID top_types_
+data_constructor ::= UID top_types_ {
+    methods=[getName]
+}
 private top_types_ ::= '('  ')' | '(' type (',' type)* ')'
 
-type_variable_def ::= LID
+type_variable_def ::= LID {
+    methods=[getName]
+}
 type_variable ::= LID {
     extends=type
+    methods=[getName]
 }
 type_constructor ::= UID top_types_ {
     extends=type
+    methods=[getName]
 }
 remote_type_id ::= mod '.' UID
 remote_type_constructor ::= remote_type_id top_types_ {
     extends=type
+    methods=[getName]
 }
 type ::= remote_type_constructor | type_constructor | type_variable
 
@@ -63,20 +70,32 @@ mod ::= LID
 remote_ctr ::= mod '.' UID
 
 binding ::= variable '=' expr ';'
-variable ::= LID
+variable ::= LID {
+    methods=[getName]
+}
 
 expr ::= remote_constructor_expr | app_expr | remote_variable_expr | variable_expr | constructor_expr | lambda_expr | case_expr | paren_expr
 private paren_expr ::= '(' expr ')'
 app_expr ::= (remote_variable_expr | variable_expr | paren_expr) exprs_
 private exprs_ ::= '('  ')' |  '(' expr (',' expr)* ')'
-remote_variable_expr ::= mod '.' LID
-variable_expr ::= LID
-constructor_expr ::= UID exprs_
-remote_constructor_expr ::= remote_ctr exprs_
+remote_variable_expr ::= mod '.' LID {
+    methods=[getName]
+}
+variable_expr ::= LID {
+    methods=[getName]
+}
+constructor_expr ::= UID exprs_ {
+    methods=[getName]
+}
+remote_constructor_expr ::= remote_ctr exprs_ {
+    methods=[getName]
+}
 lambda_expr ::= 'lam' variables_ '->' expr
 case_expr ::= 'case' expr 'of' '{' branch* '}'
 
 branch ::= pattern '->' expr ';'
-pattern ::= UID variables_
+pattern ::= UID variables_ {
+    methods=[getName]
+}
 
 private variables_ ::= '('  ')' | '(' variable (',' variable)* ')'

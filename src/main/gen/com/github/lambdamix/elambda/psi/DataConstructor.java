@@ -19,4 +19,6 @@ public interface DataConstructor extends PsiElement {
   @NotNull
   PsiElement getUid();
 
+  @NotNull String getName();
+
 }

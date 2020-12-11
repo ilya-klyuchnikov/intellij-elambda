@@ -51,4 +51,9 @@ public class RemoteTypeConstructorImpl extends TypeImpl implements RemoteTypeCon
     return findNotNullChildByType(PAR_RIGHT);
   }
 
+  @Override
+  public @NotNull String getName() {
+    return ELambdaPsiImplUtil.getName(this);
+  }
+
 }

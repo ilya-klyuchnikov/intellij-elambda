@@ -33,4 +33,9 @@ public class VariableImpl extends ASTWrapperPsiElement implements Variable {
     return findNotNullChildByType(LID);
   }
 
+  @Override
+  public @NotNull String getName() {
+    return ELambdaPsiImplUtil.getName(this);
+  }
+
 }

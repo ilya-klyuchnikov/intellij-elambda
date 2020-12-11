@@ -51,4 +51,9 @@ public class RemoteConstructorExprImpl extends ExprImpl implements RemoteConstru
     return findNotNullChildByType(PAR_RIGHT);
   }
 
+  @Override
+  public @NotNull String getName() {
+    return ELambdaPsiImplUtil.getName(this);
+  }
+
 }
