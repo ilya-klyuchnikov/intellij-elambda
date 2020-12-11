@@ -4,6 +4,7 @@ package com.github.lambdamix.elambda.psi;
 import java.util.List;
 import org.jetbrains.annotations.*;
 import com.intellij.psi.PsiElement;
+import com.github.lambdamix.elambda.psi.reference.TypeConstructorReference;
 
 public interface TypeConstructor extends Type {
 
@@ -20,6 +21,8 @@ public interface TypeConstructor extends Type {
   PsiElement getUid();
 
   @NotNull String getName();
+
+  @NotNull TypeConstructorReference getReference();
 
   @NotNull
   PsiElement getCtrName();

@@ -74,6 +74,7 @@ type_constructor ::= UID top_types_ {
     extends=type
     methods=[
         getName
+        getReference
         ctrName="/UID"
     ]
 }

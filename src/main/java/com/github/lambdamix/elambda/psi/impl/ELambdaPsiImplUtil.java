@@ -1,6 +1,7 @@
 package com.github.lambdamix.elambda.psi.impl;
 
 import com.github.lambdamix.elambda.psi.*;
+import com.github.lambdamix.elambda.psi.reference.TypeConstructorReference;
 import com.github.lambdamix.elambda.psi.reference.TypeVariableReference;
 import org.jetbrains.annotations.NotNull;
 
@@ -39,6 +40,11 @@ public class ELambdaPsiImplUtil {
     @NotNull
     public static String getName(TypeConstructor element) {
         return element.getCtrName().getText();
+    }
+
+    @NotNull
+    public static TypeConstructorReference getReference(TypeConstructor element) {
+        return new TypeConstructorReference(element);
     }
 
     @NotNull
