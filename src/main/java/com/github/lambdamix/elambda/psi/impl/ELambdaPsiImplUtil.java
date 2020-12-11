@@ -42,6 +42,11 @@ public class ELambdaPsiImplUtil {
     }
 
     @NotNull
+    public static String getName(TypeDefinition element) {
+        return element.getTypeName().getText();
+    }
+
+    @NotNull
     public static String getName(TypeVariable element) {
         return element.getVarName().getText();
     }

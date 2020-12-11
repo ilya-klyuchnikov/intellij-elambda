@@ -39,7 +39,12 @@
 
 elambdaFile ::= (type_definition | binding | COMMENT)*
 
-type_definition ::= 'data' UID type_variable_defs_ '=' data_constructors_ ';'
+type_definition ::= 'data' UID type_variable_defs_ '=' data_constructors_ ';' {
+    methods=[
+        getName
+        typeName="/UID"
+    ]
+}
 private type_variable_defs_ ::=  '(' ')' | '(' type_variable_def (','  type_variable_def)* ')'
 private data_constructors_ ::= data_constructor ('|' data_constructor)*
 

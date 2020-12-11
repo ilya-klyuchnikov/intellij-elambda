@@ -75,4 +75,15 @@ public class TypeDefinitionImpl extends ASTWrapperPsiElement implements TypeDefi
     return findNotNullChildByType(UID);
   }
 
+  @Override
+  public @NotNull String getName() {
+    return ELambdaPsiImplUtil.getName(this);
+  }
+
+  @Override
+  @NotNull
+  public PsiElement getTypeName() {
+    return getUid();
+  }
+
 }

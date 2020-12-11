@@ -31,4 +31,9 @@ public interface TypeDefinition extends PsiElement {
   @NotNull
   PsiElement getUid();
 
+  @NotNull String getName();
+
+  @NotNull
+  PsiElement getTypeName();
+
 }
