@@ -1,0 +1,15 @@
+FILE
+  PsiElement(data)('data')
+  PsiWhiteSpace(' ')
+  PsiElement(UID)('List')
+  PsiElement(()('(')
+  PsiErrorElement:')' or LID expected, got 'A'
+    PsiElement(UID)('A')
+  PsiElement())(')')
+  PsiWhiteSpace(' ')
+  PsiElement(=)('=')
+  PsiWhiteSpace(' ')
+  PsiElement(UID)('Nil')
+  PsiElement(()('(')
+  PsiElement())(')')
+  PsiElement(;)(';')

@@ -1,0 +1,20 @@
+data List(a) = Nil() | Cons(a, List(a));
+
+data MList(a) = MNil() | MCons(maybe.maybe(a), MList(a));
+
+data Result(a) = Ok(a) | Error();
+
+append = lam (xs, ys) ->
+    case xs of {
+        Nil() -> ys;
+        Cons(x1, xs1) -> Cons(x1, append(xs1, ys));
+    };
+
+
+headOption = lam (xs) ->
+    case xs of {
+        Nil() -> maybe.None();
+        Cons(x1, xs1) -> maybe.Some(x1);
+    };
+
+member = lam (x, xs) -> any(basics.eq(x), xs);
