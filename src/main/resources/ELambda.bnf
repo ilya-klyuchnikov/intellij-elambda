@@ -44,34 +44,61 @@ private type_variable_defs_ ::=  '(' ')' | '(' type_variable_def (','  type_vari
 private data_constructors_ ::= data_constructor ('|' data_constructor)*
 
 data_constructor ::= UID top_types_ {
-    methods=[getName]
+    methods=[
+        getName
+        ctrName="/UID"
+    ]
 }
 private top_types_ ::= '('  ')' | '(' type (',' type)* ')'
 
 type_variable_def ::= LID {
-    methods=[getName]
+    methods=[
+        getName
+        varName="/LID"
+    ]
 }
 type_variable ::= LID {
     extends=type
-    methods=[getName]
+    methods=[
+        getName
+        varName="/LID"
+    ]
 }
 type_constructor ::= UID top_types_ {
     extends=type
-    methods=[getName]
+    methods=[
+        getName
+        ctrName="/UID"
+    ]
 }
 remote_type_id ::= mod '.' UID
 remote_type_constructor ::= remote_type_id top_types_ {
     extends=type
-    methods=[getName]
+    methods=[
+        getName
+        ctrName="/remote_type_id/UID"
+        mod="/remote_type_id/mod"
+    ]
 }
 type ::= remote_type_constructor | type_constructor | type_variable
 
-mod ::= LID
-remote_ctr ::= mod '.' UID
+mod ::= LID {
+    methods=[
+        modName="/LID"
+    ]
+}
+remote_ctr ::= mod '.' UID {
+    methods=[
+        ctrName="/UID"
+    ]
+}
 
 binding ::= variable '=' expr ';'
 variable ::= LID {
-    methods=[getName]
+    methods=[
+        getName
+        varName="/LID"
+    ]
 }
 
 expr ::= remote_constructor_expr | app_expr | remote_variable_expr | variable_expr | constructor_expr | lambda_expr | case_expr | paren_expr
@@ -79,23 +106,39 @@ private paren_expr ::= '(' expr ')'
 app_expr ::= (remote_variable_expr | variable_expr | paren_expr) exprs_
 private exprs_ ::= '('  ')' |  '(' expr (',' expr)* ')'
 remote_variable_expr ::= mod '.' LID {
-    methods=[getName]
+    methods=[
+        getName
+        varName="/LID"
+    ]
 }
 variable_expr ::= LID {
-    methods=[getName]
+    methods=[
+        getName
+        varName="/LID"
+    ]
 }
 constructor_expr ::= UID exprs_ {
-    methods=[getName]
+    methods=[
+        getName
+        ctrName="/UID"
+    ]
 }
 remote_constructor_expr ::= remote_ctr exprs_ {
-    methods=[getName]
+    methods=[
+        getName
+        ctrName="/remote_ctr/UID"
+        mod="/remote_ctr/mod"
+    ]
 }
 lambda_expr ::= 'lam' variables_ '->' expr
 case_expr ::= 'case' expr 'of' '{' branch* '}'
 
 branch ::= pattern '->' expr ';'
 pattern ::= UID variables_ {
-    methods=[getName]
+    methods=[
+        getName
+        patName="/UID"
+    ]
 }
 
 private variables_ ::= '('  ')' | '(' variable (',' variable)* ')'
