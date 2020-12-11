@@ -1,0 +1,7 @@
+/.idea/
+/.gradle/
+/build/
+/jps-plugin/build/
+/out/
+/jps-plugin/out/
+*.iml
