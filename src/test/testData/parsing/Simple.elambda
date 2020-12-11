@@ -1,6 +1,6 @@
 data List(a) = Nil() | Cons(a, List(a));
 
-data MList(a) = MNil() | MCons(maybe.maybe(a), MList(a));
+data MList(a) = MNil() | MCons(maybe.Maybe(a), MList(a));
 
 data Result(a) = Ok(a) | Error();
 

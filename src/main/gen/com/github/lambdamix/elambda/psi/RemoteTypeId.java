@@ -14,6 +14,6 @@ public interface RemoteTypeId extends PsiElement {
   PsiElement getDot();
 
   @NotNull
-  PsiElement getLid();
+  PsiElement getUid();
 
 }

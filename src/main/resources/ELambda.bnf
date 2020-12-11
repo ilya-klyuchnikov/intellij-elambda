@@ -53,7 +53,7 @@ type_variable ::= LID {
 type_constructor ::= UID top_types_ {
     extends=type
 }
-remote_type_id ::= mod '.' LID
+remote_type_id ::= mod '.' UID
 remote_type_constructor ::= remote_type_id top_types_ {
     extends=type
 }

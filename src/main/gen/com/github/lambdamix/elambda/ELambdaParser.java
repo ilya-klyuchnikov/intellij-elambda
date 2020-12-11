@@ -364,14 +364,14 @@ public class ELambdaParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // mod '.' LID
+  // mod '.' UID
   public static boolean remote_type_id(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "remote_type_id")) return false;
     if (!nextTokenIs(b, LID)) return false;
     boolean r;
     Marker m = enter_section_(b);
     r = mod(b, l + 1);
-    r = r && consumeTokens(b, 0, DOT, LID);
+    r = r && consumeTokens(b, 0, DOT, UID);
     exit_section_(b, m, REMOTE_TYPE_ID, r);
     return r;
   }

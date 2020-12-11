@@ -59,7 +59,7 @@ FILE
           ModImpl(MOD)
             PsiElement(LID)('maybe')
           PsiElement(.)('.')
-          PsiElement(LID)('maybe')
+          PsiElement(UID)('Maybe')
         PsiElement(()('(')
         TypeVariableImpl(TYPE_VARIABLE)
           PsiElement(LID)('a')

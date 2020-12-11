@@ -41,8 +41,8 @@ public class RemoteTypeIdImpl extends ASTWrapperPsiElement implements RemoteType
 
   @Override
   @NotNull
-  public PsiElement getLid() {
-    return findNotNullChildByType(LID);
+  public PsiElement getUid() {
+    return findNotNullChildByType(UID);
   }
 
 }
