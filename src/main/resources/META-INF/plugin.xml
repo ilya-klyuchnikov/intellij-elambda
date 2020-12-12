@@ -26,14 +26,6 @@
                 implementationClass="com.github.lambdamix.elambda.inspection.VariableInspection"/>
         <localInspection
                 language="elambda"
-                shortName="RemoteVariables"
-                displayName="ELambda remote variables"
-                groupName="ELambda"
-                enabledByDefault="true"
-                level="ERROR"
-                implementationClass="com.github.lambdamix.elambda.inspection.RemoteVariableInspection"/>
-        <localInspection
-                language="elambda"
                 shortName="TypeVariables"
                 displayName="ELambda type variables"
                 groupName="ELambda"

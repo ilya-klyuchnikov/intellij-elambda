@@ -32,7 +32,7 @@ public class ELambdaInspectionsTest extends BasePlatformTestCase {
     }
 
     public void testRemoteVariables() {
-        testInspection(RemoteVariableInspection.class, true);
+        testInspection(ReferenceInspection.class, true);
     }
 
     public void testTypeConstructor() {

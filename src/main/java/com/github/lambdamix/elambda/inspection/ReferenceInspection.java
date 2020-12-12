@@ -62,5 +62,16 @@ public class ReferenceInspection extends _ELambdaInspectionBase {
                 holder.registerProblem(o.getCtrName(), "Type '" + fqn + "' undefined" );
             }
         }
+
+        @Override
+        public void visitRemoteVariableExpr(@NotNull RemoteVariableExpr o) {
+            if (o.getMod().getReference().resolve() == null) {
+                holder.registerProblem(o.getMod(), "Module '" + o.getMod().getName() + "' undefined");
+            } else if (o.getReference().resolve() == null) {
+                // checking variable ONLY of module is defined
+                String fqn = o.getMod().getName() + "." + o.getName();
+                holder.registerProblem(o.getLid(), "Variable '" + fqn + "' undefined");
+            }
+        }
     }
 }
