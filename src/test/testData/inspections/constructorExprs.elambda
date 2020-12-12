@@ -1,0 +1,3 @@
+data Known() = KnownCtr();
+unknownCtr = <error descr="Constructor 'UnknownCtr' undefined">UnknownCtr</error>();
+knownCtr = KnownCtr();
