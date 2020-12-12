@@ -24,6 +24,18 @@ public class ELambdaResolveTest extends BasePlatformTestCase {
         assertEquals(constructorExpr.getName(), dataConstructor.getName());
     }
 
+    public void testRemoteConstructorExpr() {
+        myFixture.configureByFiles(getFileName(), getFileNameAux());
+        PsiElement element = myFixture.getFile().findElementAt(myFixture.getCaretOffset());
+        RemoteConstructorExpr remoteConstructorExpr = PsiTreeUtil.getParentOfType(element, RemoteConstructorExpr.class);
+        assertNotNull(remoteConstructorExpr);
+        RemoteConstructorExprReference reference = remoteConstructorExpr.getReference();
+        DataConstructor dataConstructor = reference.resolve();
+        assertNotNull(dataConstructor);
+        assertEquals(remoteConstructorExpr.getName(), dataConstructor.getName());
+        assertEquals(getFileNameAux(), dataConstructor.getContainingFile().getName());
+    }
+
     public void testRemoteTypeConstructor() {
         myFixture.configureByFiles(getFileName(), getFileNameAux());
         PsiElement element = myFixture.getFile().findElementAt(myFixture.getCaretOffset());

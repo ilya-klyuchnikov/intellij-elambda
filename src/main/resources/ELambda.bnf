@@ -137,6 +137,7 @@ constructor_expr ::= UID exprs_ {
 remote_constructor_expr ::= remote_ctr exprs_ {
     methods=[
         getName
+        getReference
         ctrName="/remote_ctr/UID"
         mod="/remote_ctr/mod"
     ]

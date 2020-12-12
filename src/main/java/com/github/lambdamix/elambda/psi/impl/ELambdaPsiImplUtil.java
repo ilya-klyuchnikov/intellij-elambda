@@ -34,6 +34,11 @@ public class ELambdaPsiImplUtil {
     }
 
     @NotNull
+    public static RemoteConstructorExprReference getReference(RemoteConstructorExpr element) {
+        return new RemoteConstructorExprReference(element);
+    }
+
+    @NotNull
     public static String getName(RemoteTypeConstructor element) {
         return element.getCtrName().getText();
     }
