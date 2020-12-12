@@ -2,6 +2,7 @@ package com.github.lambdamix.elambda.psi.impl;
 
 import com.github.lambdamix.elambda.psi.*;
 import com.github.lambdamix.elambda.psi.reference.RemoteTypeConstructorReference;
+import com.github.lambdamix.elambda.psi.reference.RemoteVariableExprReference;
 import com.github.lambdamix.elambda.psi.reference.TypeConstructorReference;
 import com.github.lambdamix.elambda.psi.reference.TypeVariableReference;
 import com.github.lambdamix.elambda.psi.reference.VariableExprReference;
@@ -44,6 +45,11 @@ public class ELambdaPsiImplUtil {
     @NotNull
     public static String getName(RemoteVariableExpr element) {
         return element.getVarName().getText();
+    }
+
+    @NotNull
+    public static RemoteVariableExprReference getReference(RemoteVariableExpr element) {
+        return new RemoteVariableExprReference(element);
     }
 
     @NotNull

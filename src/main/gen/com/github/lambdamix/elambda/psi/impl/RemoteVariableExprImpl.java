@@ -9,6 +9,7 @@ import com.intellij.psi.PsiElementVisitor;
 import com.intellij.psi.util.PsiTreeUtil;
 import static com.github.lambdamix.elambda.ELambdaTypes.*;
 import com.github.lambdamix.elambda.psi.*;
+import com.github.lambdamix.elambda.psi.reference.RemoteVariableExprReference;
 
 public class RemoteVariableExprImpl extends ExprImpl implements RemoteVariableExpr {
 
@@ -48,6 +49,11 @@ public class RemoteVariableExprImpl extends ExprImpl implements RemoteVariableEx
   @Override
   public @NotNull String getName() {
     return ELambdaPsiImplUtil.getName(this);
+  }
+
+  @Override
+  public @NotNull RemoteVariableExprReference getReference() {
+    return ELambdaPsiImplUtil.getReference(this);
   }
 
   @Override

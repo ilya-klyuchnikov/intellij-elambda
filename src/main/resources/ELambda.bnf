@@ -116,6 +116,7 @@ private exprs_ ::= '('  ')' |  '(' expr (',' expr)* ')'
 remote_variable_expr ::= mod '.' LID {
     methods=[
         getName
+        getReference
         varName="/LID"
     ]
 }
