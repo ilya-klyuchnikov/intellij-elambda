@@ -10,6 +10,7 @@ import com.intellij.psi.util.PsiTreeUtil;
 import static com.github.lambdamix.elambda.ELambdaTypes.*;
 import com.intellij.extapi.psi.ASTWrapperPsiElement;
 import com.github.lambdamix.elambda.psi.*;
+import com.github.lambdamix.elambda.psi.reference.ModReference;
 
 public class ModImpl extends ASTWrapperPsiElement implements Mod {
 
@@ -36,6 +37,11 @@ public class ModImpl extends ASTWrapperPsiElement implements Mod {
   @Override
   public @NotNull String getName() {
     return ELambdaPsiImplUtil.getName(this);
+  }
+
+  @Override
+  public @NotNull ModReference getReference() {
+    return ELambdaPsiImplUtil.getReference(this);
   }
 
   @Override

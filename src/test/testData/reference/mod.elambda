@@ -1,0 +1,2 @@
+unbox = lam (box) ->
+    case box of { <caret>modAux.Box(x) -> x; };

@@ -32,6 +32,11 @@ public class ELambdaPsiImplUtil {
     }
 
     @NotNull
+    public static ModReference getReference(Mod element) {
+        return new ModReference(element);
+    }
+
+    @NotNull
     public static String getName(LocalPattern element) {
         return element.getPatName().getText();
     }

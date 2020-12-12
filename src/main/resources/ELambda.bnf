@@ -93,6 +93,7 @@ type ::= remote_type_constructor | type_constructor | type_variable
 mod ::= LID {
     methods=[
         getName
+        getReference
         modName="/LID"
     ]
 }
