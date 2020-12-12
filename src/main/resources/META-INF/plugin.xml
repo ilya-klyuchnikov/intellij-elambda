@@ -24,6 +24,10 @@
                 enabledByDefault="true"
                 level="ERROR"
                 implementationClass="com.github.lambdamix.elambda.inspection.ReferenceInspection"/>
+
+        <lang.syntaxHighlighterFactory
+                language="elambda"
+                implementationClass="com.github.lambdamix.elambda.ELambdaSyntaxHighlighterFactory"/>
     </extensions>
 
     <actions>
