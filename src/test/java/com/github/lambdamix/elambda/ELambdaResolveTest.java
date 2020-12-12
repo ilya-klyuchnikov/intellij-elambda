@@ -8,8 +8,6 @@ import com.github.lambdamix.elambda.psi.reference.VariableExprReference;
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.util.PsiTreeUtil;
 import com.intellij.testFramework.fixtures.BasePlatformTestCase;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 public class ELambdaResolveTest extends BasePlatformTestCase {
 
