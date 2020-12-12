@@ -28,6 +28,9 @@
         <lang.syntaxHighlighterFactory
                 language="elambda"
                 implementationClass="com.github.lambdamix.elambda.ELambdaSyntaxHighlighterFactory"/>
+        <lang.commenter
+                language="elambda"
+                implementationClass="com.github.lambdamix.elambda.ELambdaCommenter"/>
     </extensions>
 
     <actions>
