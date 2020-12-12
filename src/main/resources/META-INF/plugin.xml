@@ -15,6 +15,15 @@
         <lang.parserDefinition
                 language="elambda"
                 implementationClass="com.github.lambdamix.elambda.ELambdaParserDefinition" />
+
+        <localInspection
+                language="elambda"
+                shortName="UnboundVariable"
+                displayName="Unbound variable"
+                groupName="ELambda"
+                enabledByDefault="true"
+                level="ERROR"
+                implementationClass="com.github.lambdamix.elambda.inspection.UnboundVariableInspection"/>
     </extensions>
 
     <actions>

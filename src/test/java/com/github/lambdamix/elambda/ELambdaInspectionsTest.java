@@ -1,14 +1,17 @@
 package com.github.lambdamix.elambda;
 
+import com.github.lambdamix.elambda.inspection.UnboundVariableInspection;
 import com.github.lambdamix.elambda.inspection._ELambdaInspectionBase;
 import com.intellij.testFramework.fixtures.BasePlatformTestCase;
-import org.junit.Ignore;
 
-@Ignore
 public class ELambdaInspectionsTest extends BasePlatformTestCase {
     @Override
     protected String getTestDataPath() {
         return "src/test/testData/inspections";
+    }
+
+    public void testUnboundVariables() {
+        testInspection(UnboundVariableInspection.class);
     }
 
     private void testInspection(Class<? extends _ELambdaInspectionBase> inspection) {

@@ -1,0 +1,7 @@
+id = lam (x) -> Ctr(x, <error descr="Variable 'y' is unbound">y</error>);
+test = id(<error descr="Variable 'arg' is unbound">arg</error>);
+caselam =
+    lam (pair, other) ->
+        case pair of {
+             Pair(fst, snd) -> Pair(snd, <error descr="Variable 'unknown' is unbound">unknown</error>);
+        };
