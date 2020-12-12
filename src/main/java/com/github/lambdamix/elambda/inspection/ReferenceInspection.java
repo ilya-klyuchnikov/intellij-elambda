@@ -42,5 +42,15 @@ public class ReferenceInspection extends _ELambdaInspectionBase {
                 holder.registerProblem(o.getCtrName(), "Constructor '" + fqn + "' undefined" );
             }
         }
+
+        @Override
+        public void visitRemotePattern(@NotNull RemotePattern o) {
+            if (o.getMod().getReference().resolve() == null) {
+                holder.registerProblem(o.getMod(), "Module '" + o.getMod().getName() + "' undefined");
+            } else if (o.getReference().resolve() == null) {
+                String fqn = o.getMod().getName() + "." + o.getName();
+                holder.registerProblem(o.getPatName(), "Constructor '" + fqn + "' undefined" );
+            }
+        }
     }
 }
