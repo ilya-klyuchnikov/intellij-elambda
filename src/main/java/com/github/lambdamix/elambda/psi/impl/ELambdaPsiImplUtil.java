@@ -14,6 +14,11 @@ public class ELambdaPsiImplUtil {
     }
 
     @NotNull
+    public static ConstructorExprReference getReference(ConstructorExpr element) {
+        return new ConstructorExprReference(element);
+    }
+
+    @NotNull
     public static String getName(DataConstructor element) {
         return element.getCtrName().getText();
     }

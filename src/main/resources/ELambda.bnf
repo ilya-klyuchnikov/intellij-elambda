@@ -130,6 +130,7 @@ variable_expr ::= LID {
 constructor_expr ::= UID exprs_ {
     methods=[
         getName
+        getReference
         ctrName="/UID"
     ]
 }

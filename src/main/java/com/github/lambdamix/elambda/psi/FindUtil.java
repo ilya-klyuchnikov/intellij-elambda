@@ -8,6 +8,16 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class FindUtil {
+    public static List<DataConstructor> findDataConstructors(PsiFile psiFile) {
+        return findTypeDefinitions(psiFile).stream()
+                .flatMap(def -> def.getDataConstructorList().stream())
+                .collect(Collectors.toList());
+    }
+
+    public static List<DataConstructor> findDataConstructors(PsiFile psiFile, String name) {
+        return findDataConstructors(psiFile).stream().filter(ctr -> name.equals(ctr.getName())).collect(Collectors.toList());
+    }
+
     public static List<Variable> findTopLevelVariables(PsiFile psiFile) {
         if (psiFile instanceof ELambdaFile) {
             return PsiTreeUtil.getChildrenOfTypeAsList(psiFile, Binding.class).stream()

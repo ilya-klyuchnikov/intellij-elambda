@@ -13,6 +13,17 @@ public class ELambdaResolveTest extends BasePlatformTestCase {
         return "src/test/testData/reference";
     }
 
+    public void testConstructorExpr() {
+        myFixture.configureByFile(getFileName());
+        PsiElement element = myFixture.getFile().findElementAt(myFixture.getCaretOffset());
+        ConstructorExpr constructorExpr = PsiTreeUtil.getParentOfType(element, ConstructorExpr.class);
+        assertNotNull(constructorExpr);
+        ConstructorExprReference reference = constructorExpr.getReference();
+        DataConstructor dataConstructor = reference.resolve();
+        assertNotNull(dataConstructor);
+        assertEquals(constructorExpr.getName(), dataConstructor.getName());
+    }
+
     public void testRemoteTypeConstructor() {
         myFixture.configureByFiles(getFileName(), getFileNameAux());
         PsiElement element = myFixture.getFile().findElementAt(myFixture.getCaretOffset());

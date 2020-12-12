@@ -9,6 +9,7 @@ import com.intellij.psi.PsiElementVisitor;
 import com.intellij.psi.util.PsiTreeUtil;
 import static com.github.lambdamix.elambda.ELambdaTypes.*;
 import com.github.lambdamix.elambda.psi.*;
+import com.github.lambdamix.elambda.psi.reference.ConstructorExprReference;
 
 public class ConstructorExprImpl extends ExprImpl implements ConstructorExpr {
 
@@ -54,6 +55,11 @@ public class ConstructorExprImpl extends ExprImpl implements ConstructorExpr {
   @Override
   public @NotNull String getName() {
     return ELambdaPsiImplUtil.getName(this);
+  }
+
+  @Override
+  public @NotNull ConstructorExprReference getReference() {
+    return ELambdaPsiImplUtil.getReference(this);
   }
 
   @Override
