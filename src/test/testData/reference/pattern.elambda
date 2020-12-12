@@ -1,0 +1,4 @@
+data Box(a) = Box(a);
+
+unbox = lam (box) ->
+    case box of { <caret>Box(x) -> x; };

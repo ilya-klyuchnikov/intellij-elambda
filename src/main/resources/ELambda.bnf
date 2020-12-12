@@ -149,6 +149,7 @@ branch ::= pattern '->' expr ';'
 pattern ::= UID variables_ {
     methods=[
         getName
+        getReference
         patName="/UID"
     ]
 }
