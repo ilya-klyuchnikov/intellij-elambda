@@ -28,7 +28,7 @@ public class ELambdaInspectionsTest extends BasePlatformTestCase {
     }
 
     public void testRemoteTypeConstructors() {
-        testInspection(RemoteTypeConstructorInspection.class, true);
+        testInspection(ReferenceInspection.class, true);
     }
 
     public void testRemoteVariables() {
