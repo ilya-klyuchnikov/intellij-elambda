@@ -17,6 +17,7 @@ dependencies {
 }
 
 sourceSets.main.java.srcDirs 'src/main/gen'
+buildSearchableOptions.enabled = false
 
 // See https://github.com/JetBrains/gradle-intellij-plugin/
 intellij {
