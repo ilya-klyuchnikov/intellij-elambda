@@ -18,3 +18,5 @@ headOption = lam (xs) ->
     };
 
 member = lam (x, xs) -> any(basics.eq(x), xs);
+
+unbox = lam (box) -> case box of { box.Box(x) -> x; };

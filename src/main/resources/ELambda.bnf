@@ -146,12 +146,24 @@ lambda_expr ::= 'lam' variables_ '->' expr
 case_expr ::= 'case' expr 'of' '{' branch* '}'
 
 branch ::= pattern '->' expr ';'
-pattern ::= UID variables_ {
+pattern ::= remotePattern | localPattern {
+    methods=[getVariableList]
+}
+
+localPattern ::= UID variables_ {
     methods=[
         getName
         getReference
         patName="/UID"
     ]
 }
+
+remotePattern ::= remote_ctr variables_ {
+    methods=[
+        patName="/remote_ctr/UID"
+        mod="/remote_ctr/mod"
+    ]
+}
+
 
 private variables_ ::= '('  ')' | '(' variable (',' variable)* ')'

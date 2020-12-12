@@ -4,27 +4,15 @@ package com.github.lambdamix.elambda.psi;
 import java.util.List;
 import org.jetbrains.annotations.*;
 import com.intellij.psi.PsiElement;
-import com.github.lambdamix.elambda.psi.reference.PatternReference;
 
 public interface Pattern extends PsiElement {
 
-  @NotNull
-  List<Variable> getVariableList();
+  @Nullable
+  LocalPattern getLocalPattern();
 
-  @NotNull
-  PsiElement getParLeft();
+  @Nullable
+  RemotePattern getRemotePattern();
 
-  @NotNull
-  PsiElement getParRight();
-
-  @NotNull
-  PsiElement getUid();
-
-  @NotNull String getName();
-
-  @NotNull PatternReference getReference();
-
-  @NotNull
-  PsiElement getPatName();
+  @NotNull List<Variable> getVariableList();
 
 }

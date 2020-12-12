@@ -18,10 +18,12 @@ public interface ELambdaTypes {
   IElementType DATA_CONSTRUCTOR = new ELambdaElementType("DATA_CONSTRUCTOR");
   IElementType EXPR = new ELambdaElementType("EXPR");
   IElementType LAMBDA_EXPR = new ELambdaElementType("LAMBDA_EXPR");
+  IElementType LOCAL_PATTERN = new ELambdaElementType("LOCAL_PATTERN");
   IElementType MOD = new ELambdaElementType("MOD");
   IElementType PATTERN = new ELambdaElementType("PATTERN");
   IElementType REMOTE_CONSTRUCTOR_EXPR = new ELambdaElementType("REMOTE_CONSTRUCTOR_EXPR");
   IElementType REMOTE_CTR = new ELambdaElementType("REMOTE_CTR");
+  IElementType REMOTE_PATTERN = new ELambdaElementType("REMOTE_PATTERN");
   IElementType REMOTE_TYPE_CONSTRUCTOR = new ELambdaElementType("REMOTE_TYPE_CONSTRUCTOR");
   IElementType REMOTE_TYPE_ID = new ELambdaElementType("REMOTE_TYPE_ID");
   IElementType REMOTE_VARIABLE_EXPR = new ELambdaElementType("REMOTE_VARIABLE_EXPR");
@@ -79,6 +81,9 @@ public interface ELambdaTypes {
       else if (type == LAMBDA_EXPR) {
         return new LambdaExprImpl(node);
       }
+      else if (type == LOCAL_PATTERN) {
+        return new LocalPatternImpl(node);
+      }
       else if (type == MOD) {
         return new ModImpl(node);
       }
@@ -90,6 +95,9 @@ public interface ELambdaTypes {
       }
       else if (type == REMOTE_CTR) {
         return new RemoteCtrImpl(node);
+      }
+      else if (type == REMOTE_PATTERN) {
+        return new RemotePatternImpl(node);
       }
       else if (type == REMOTE_TYPE_CONSTRUCTOR) {
         return new RemoteTypeConstructorImpl(node);

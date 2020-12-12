@@ -10,7 +10,6 @@ import com.intellij.psi.util.PsiTreeUtil;
 import static com.github.lambdamix.elambda.ELambdaTypes.*;
 import com.intellij.extapi.psi.ASTWrapperPsiElement;
 import com.github.lambdamix.elambda.psi.*;
-import com.github.lambdamix.elambda.psi.reference.PatternReference;
 
 public class PatternImpl extends ASTWrapperPsiElement implements Pattern {
 
@@ -29,43 +28,20 @@ public class PatternImpl extends ASTWrapperPsiElement implements Pattern {
   }
 
   @Override
-  @NotNull
-  public List<Variable> getVariableList() {
-    return PsiTreeUtil.getChildrenOfTypeAsList(this, Variable.class);
+  @Nullable
+  public LocalPattern getLocalPattern() {
+    return findChildByClass(LocalPattern.class);
   }
 
   @Override
-  @NotNull
-  public PsiElement getParLeft() {
-    return findNotNullChildByType(PAR_LEFT);
+  @Nullable
+  public RemotePattern getRemotePattern() {
+    return findChildByClass(RemotePattern.class);
   }
 
   @Override
-  @NotNull
-  public PsiElement getParRight() {
-    return findNotNullChildByType(PAR_RIGHT);
-  }
-
-  @Override
-  @NotNull
-  public PsiElement getUid() {
-    return findNotNullChildByType(UID);
-  }
-
-  @Override
-  public @NotNull String getName() {
-    return ELambdaPsiImplUtil.getName(this);
-  }
-
-  @Override
-  public @NotNull PatternReference getReference() {
-    return ELambdaPsiImplUtil.getReference(this);
-  }
-
-  @Override
-  @NotNull
-  public PsiElement getPatName() {
-    return getUid();
+  public @NotNull List<Variable> getVariableList() {
+    return ELambdaPsiImplUtil.getVariableList(this);
   }
 
 }

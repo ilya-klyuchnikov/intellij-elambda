@@ -6,6 +6,9 @@ import com.intellij.openapi.util.TextRange;
 import com.intellij.psi.PsiElement;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.Collections;
+import java.util.List;
+
 public class ELambdaPsiImplUtil {
 
     @NotNull
@@ -24,13 +27,24 @@ public class ELambdaPsiImplUtil {
     }
 
     @NotNull
-    public static String getName(Pattern element) {
+    public static String getName(LocalPattern element) {
         return element.getPatName().getText();
     }
 
     @NotNull
-    public static PatternReference getReference(Pattern element) {
-        return new PatternReference(element);
+    public static LocalPatternReference getReference(LocalPattern element) {
+        return new LocalPatternReference(element);
+    }
+
+    @NotNull
+    public static List<Variable> getVariableList(Pattern element) {
+        if (element.getLocalPattern() != null) {
+            return element.getLocalPattern().getVariableList();
+        } else if (element.getRemotePattern() != null) {
+            return element.getRemotePattern().getVariableList();
+        } else {
+            return Collections.emptyList();
+        }
     }
 
     @NotNull

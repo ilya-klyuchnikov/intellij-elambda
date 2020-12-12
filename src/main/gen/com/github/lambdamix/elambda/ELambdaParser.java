@@ -83,14 +83,14 @@ public class ELambdaParser implements PsiParser, LightPsiParser {
   // pattern '->' expr ';'
   public static boolean branch(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "branch")) return false;
-    if (!nextTokenIs(b, UID)) return false;
+    if (!nextTokenIs(b, "<branch>", LID, UID)) return false;
     boolean r;
-    Marker m = enter_section_(b);
+    Marker m = enter_section_(b, l, _NONE_, BRANCH, "<branch>");
     r = pattern(b, l + 1);
     r = r && consumeToken(b, ARROW);
     r = r && expr(b, l + 1);
     r = r && consumeToken(b, SEMI);
-    exit_section_(b, m, BRANCH, r);
+    exit_section_(b, l, m, r, false, null);
     return r;
   }
 
@@ -286,6 +286,19 @@ public class ELambdaParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
+  // UID variables_
+  public static boolean localPattern(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "localPattern")) return false;
+    if (!nextTokenIs(b, UID)) return false;
+    boolean r;
+    Marker m = enter_section_(b);
+    r = consumeToken(b, UID);
+    r = r && variables_(b, l + 1);
+    exit_section_(b, m, LOCAL_PATTERN, r);
+    return r;
+  }
+
+  /* ********************************************************** */
   // LID
   public static boolean mod(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "mod")) return false;
@@ -312,15 +325,28 @@ public class ELambdaParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // UID variables_
+  // remotePattern | localPattern
   public static boolean pattern(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "pattern")) return false;
-    if (!nextTokenIs(b, UID)) return false;
+    if (!nextTokenIs(b, "<pattern>", LID, UID)) return false;
+    boolean r;
+    Marker m = enter_section_(b, l, _NONE_, PATTERN, "<pattern>");
+    r = remotePattern(b, l + 1);
+    if (!r) r = localPattern(b, l + 1);
+    exit_section_(b, l, m, r, false, null);
+    return r;
+  }
+
+  /* ********************************************************** */
+  // remote_ctr variables_
+  public static boolean remotePattern(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "remotePattern")) return false;
+    if (!nextTokenIs(b, LID)) return false;
     boolean r;
     Marker m = enter_section_(b);
-    r = consumeToken(b, UID);
+    r = remote_ctr(b, l + 1);
     r = r && variables_(b, l + 1);
-    exit_section_(b, m, PATTERN, r);
+    exit_section_(b, m, REMOTE_PATTERN, r);
     return r;
   }
 

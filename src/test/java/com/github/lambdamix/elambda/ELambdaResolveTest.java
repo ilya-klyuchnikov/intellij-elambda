@@ -24,12 +24,12 @@ public class ELambdaResolveTest extends BasePlatformTestCase {
         assertEquals(constructorExpr.getName(), dataConstructor.getName());
     }
 
-    public void testPattern() {
+    public void testLocalPattern() {
         myFixture.configureByFile(getFileName());
         PsiElement element = myFixture.getFile().findElementAt(myFixture.getCaretOffset());
-        Pattern pattern = PsiTreeUtil.getParentOfType(element, Pattern.class);
+        LocalPattern pattern = PsiTreeUtil.getParentOfType(element, LocalPattern.class);
         assertNotNull(pattern);
-        PatternReference reference = pattern.getReference();
+        LocalPatternReference reference = pattern.getReference();
         DataConstructor dataConstructor = reference.resolve();
         assertNotNull(dataConstructor);
         assertEquals(pattern.getName(), dataConstructor.getName());

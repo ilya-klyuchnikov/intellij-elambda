@@ -39,11 +39,19 @@ public class ELambdaVisitor extends PsiElementVisitor {
     visitExpr(o);
   }
 
+  public void visitLocalPattern(@NotNull LocalPattern o) {
+    visitPsiElement(o);
+  }
+
   public void visitMod(@NotNull Mod o) {
     visitPsiElement(o);
   }
 
   public void visitPattern(@NotNull Pattern o) {
+    visitPsiElement(o);
+  }
+
+  public void visitRemotePattern(@NotNull RemotePattern o) {
     visitPsiElement(o);
   }
 
