@@ -58,14 +58,6 @@
                 implementationClass="com.github.lambdamix.elambda.inspection.RemoteTypeConstructorInspection"/>
         <localInspection
                 language="elambda"
-                shortName="RemoteConstructors"
-                displayName="ELambda remote constructors"
-                groupName="ELambda"
-                enabledByDefault="true"
-                level="ERROR"
-                implementationClass="com.github.lambdamix.elambda.inspection.RemoteConstructorExprInspection"/>
-        <localInspection
-                language="elambda"
                 shortName="RemotePatterns"
                 displayName="ELambda remote patterns"
                 groupName="ELambda"
