@@ -12,7 +12,7 @@ public class ELambdaInspectionsTest extends BasePlatformTestCase {
     }
 
     public void testConstructorExprs() {
-        testInspection(ConstructorExprInspection.class, false);
+        testInspection(ReferenceInspection.class, false);
     }
 
     public void testLocalPatterns() {
