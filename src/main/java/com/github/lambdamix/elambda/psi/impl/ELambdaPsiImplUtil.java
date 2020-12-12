@@ -58,6 +58,11 @@ public class ELambdaPsiImplUtil {
     }
 
     @NotNull
+    public static String getName(RemotePattern element) {
+        return element.getPatName().getText();
+    }
+
+    @NotNull
     public static String getName(RemoteTypeConstructor element) {
         return element.getCtrName().getText();
     }

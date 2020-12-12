@@ -52,6 +52,11 @@ public class RemotePatternImpl extends ASTWrapperPsiElement implements RemotePat
   }
 
   @Override
+  public @NotNull String getName() {
+    return ELambdaPsiImplUtil.getName(this);
+  }
+
+  @Override
   @NotNull
   public PsiElement getPatName() {
     RemoteCtr p1 = getRemoteCtr();

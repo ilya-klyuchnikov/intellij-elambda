@@ -160,6 +160,7 @@ localPattern ::= UID variables_ {
 
 remotePattern ::= remote_ctr variables_ {
     methods=[
+        getName
         patName="/remote_ctr/UID"
         mod="/remote_ctr/mod"
     ]

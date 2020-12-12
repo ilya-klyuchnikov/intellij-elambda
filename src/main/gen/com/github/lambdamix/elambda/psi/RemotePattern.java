@@ -19,6 +19,8 @@ public interface RemotePattern extends PsiElement {
   @NotNull
   PsiElement getParRight();
 
+  @NotNull String getName();
+
   @NotNull
   PsiElement getPatName();
 
