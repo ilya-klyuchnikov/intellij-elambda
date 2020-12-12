@@ -1,0 +1,5 @@
+id = remoteVariablesAux.id;
+selfId = remoteVariables.id;
+badId = remoteVariablesAux.<error descr="Variable 'remoteVariablesAux.badId' undefined">badId</error>;
+badModule = <error descr="Module 'remoteVariablesBad' undefined">remoteVariablesBad</error>.id;
+selfBad = remoteVariables.<error descr="Variable 'remoteVariables.bad' undefined">bad</error>;

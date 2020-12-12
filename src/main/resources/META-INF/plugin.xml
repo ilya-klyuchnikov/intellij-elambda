@@ -18,12 +18,20 @@
 
         <localInspection
                 language="elambda"
-                shortName="UnboundVariable"
-                displayName="Unbound variable"
+                shortName="Variables"
+                displayName="ELambda variables"
                 groupName="ELambda"
                 enabledByDefault="true"
                 level="ERROR"
                 implementationClass="com.github.lambdamix.elambda.inspection.VariableInspection"/>
+        <localInspection
+                language="elambda"
+                shortName="RemoteVariables"
+                displayName="ELambda remote variables"
+                groupName="ELambda"
+                enabledByDefault="true"
+                level="ERROR"
+                implementationClass="com.github.lambdamix.elambda.inspection.RemoteVariableInspection"/>
     </extensions>
 
     <actions>

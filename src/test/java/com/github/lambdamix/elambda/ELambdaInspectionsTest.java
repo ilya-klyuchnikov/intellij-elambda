@@ -1,5 +1,6 @@
 package com.github.lambdamix.elambda;
 
+import com.github.lambdamix.elambda.inspection.RemoteVariableInspection;
 import com.github.lambdamix.elambda.inspection.VariableInspection;
 import com.github.lambdamix.elambda.inspection._ELambdaInspectionBase;
 import com.intellij.testFramework.TestDataPath;
@@ -10,6 +11,10 @@ public class ELambdaInspectionsTest extends BasePlatformTestCase {
     @Override
     protected String getTestDataPath() {
         return "src/test/testData/inspections";
+    }
+
+    public void testRemoteVariables() {
+        testInspection(RemoteVariableInspection.class, true);
     }
 
     public void testVariables() {
