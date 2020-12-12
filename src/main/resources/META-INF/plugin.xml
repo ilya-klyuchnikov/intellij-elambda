@@ -72,6 +72,14 @@
                 enabledByDefault="true"
                 level="ERROR"
                 implementationClass="com.github.lambdamix.elambda.inspection.RemoteConstructorExprInspection"/>
+        <localInspection
+                language="elambda"
+                shortName="LocalPatterns"
+                displayName="ELambda local patterns"
+                groupName="ELambda"
+                enabledByDefault="true"
+                level="ERROR"
+                implementationClass="com.github.lambdamix.elambda.inspection.LocalPatternInspection"/>
     </extensions>
 
     <actions>

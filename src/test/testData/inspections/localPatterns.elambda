@@ -1,0 +1,3 @@
+data Known() = KnownCtr();
+unknownCtr = lam (x) -> case x of { <error descr="Constructor 'UnknownCtr' undefined">UnknownCtr</error>() -> KnownCtr(); };
+knownCtr = lam (x) -> case x of { KnownCtr() -> KnownCtr(); };
