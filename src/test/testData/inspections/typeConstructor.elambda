@@ -1,0 +1,1 @@
+data S1() = S(<error descr="Type 'S2' undefined">S2</error>());

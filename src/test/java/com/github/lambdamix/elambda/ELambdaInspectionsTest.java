@@ -1,9 +1,6 @@
 package com.github.lambdamix.elambda;
 
-import com.github.lambdamix.elambda.inspection.RemoteVariableInspection;
-import com.github.lambdamix.elambda.inspection.TypeVariableInspection;
-import com.github.lambdamix.elambda.inspection.VariableInspection;
-import com.github.lambdamix.elambda.inspection._ELambdaInspectionBase;
+import com.github.lambdamix.elambda.inspection.*;
 import com.intellij.testFramework.TestDataPath;
 import com.intellij.testFramework.fixtures.BasePlatformTestCase;
 
@@ -16,6 +13,10 @@ public class ELambdaInspectionsTest extends BasePlatformTestCase {
 
     public void testRemoteVariables() {
         testInspection(RemoteVariableInspection.class, true);
+    }
+
+    public void testTypeConstructor() {
+        testInspection(TypeConstructorInspection.class, false);
     }
 
     public void testTypeVariables() {

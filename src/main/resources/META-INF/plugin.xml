@@ -40,6 +40,14 @@
                 enabledByDefault="true"
                 level="ERROR"
                 implementationClass="com.github.lambdamix.elambda.inspection.TypeVariableInspection"/>
+        <localInspection
+                language="elambda"
+                shortName="TypeConstructors"
+                displayName="ELambda type constructors"
+                groupName="ELambda"
+                enabledByDefault="true"
+                level="ERROR"
+                implementationClass="com.github.lambdamix.elambda.inspection.TypeConstructorInspection"/>
     </extensions>
 
     <actions>
