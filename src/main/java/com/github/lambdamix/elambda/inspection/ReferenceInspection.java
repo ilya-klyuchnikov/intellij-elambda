@@ -1,6 +1,7 @@
 package com.github.lambdamix.elambda.inspection;
 
 import com.github.lambdamix.elambda.psi.*;
+import com.github.lambdamix.elambda.psi.reference.TypeConstructorReference;
 import com.intellij.codeInspection.LocalInspectionToolSession;
 import com.intellij.codeInspection.ProblemsHolder;
 import org.jetbrains.annotations.NotNull;
@@ -71,6 +72,14 @@ public class ReferenceInspection extends _ELambdaInspectionBase {
                 // checking variable ONLY of module is defined
                 String fqn = o.getMod().getName() + "." + o.getName();
                 holder.registerProblem(o.getLid(), "Variable '" + fqn + "' undefined");
+            }
+        }
+
+        @Override
+        public void visitTypeConstructor(@NotNull TypeConstructor o) {
+            TypeConstructorReference reference = o.getReference();
+            if (reference.resolve() == null) {
+                holder.registerProblem(o.getUid(), "Type '" + o.getName() + "' undefined" );
             }
         }
     }
