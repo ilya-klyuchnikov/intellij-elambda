@@ -1,3 +1,5 @@
+data Ctr(x, y) = Ctr(x, y);
+data Pair(fst, snd) = Pair(fst, snd);
 id = lam (x) -> Ctr(x, <error descr="Variable 'y' is unbound">y</error>);
 test = id(<error descr="Variable 'arg' is unbound">arg</error>);
 caselam =

@@ -89,5 +89,12 @@ public class ReferenceInspection extends _ELambdaInspectionBase {
                 holder.registerProblem(o.getLid(), "Type variable '" + o.getName() + "' undefined");
             }
         }
+
+        @Override
+        public void visitVariableExpr(@NotNull VariableExpr o) {
+            if (o.getReference().resolve() == null) {
+                holder.registerProblem(o.getLid(), "Variable '" + o.getName() + "' is unbound");
+            }
+        }
     }
 }

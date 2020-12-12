@@ -44,7 +44,7 @@ public class ELambdaInspectionsTest extends BasePlatformTestCase {
     }
 
     public void testVariables() {
-        testInspection(VariableInspection.class, false);
+        testInspection(ReferenceInspection.class, false);
     }
 
     private void testInspection(Class<? extends _ELambdaInspectionBase> inspection, boolean aux) {
