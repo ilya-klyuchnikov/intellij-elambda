@@ -16,7 +16,7 @@ public class ELambdaInspectionsTest extends BasePlatformTestCase {
     }
 
     public void testLocalPatterns() {
-        testInspection(LocalPatternInspection.class, false);
+        testInspection(ReferenceInspection.class, false);
     }
 
     public void testRemoteConstructorExprs() {

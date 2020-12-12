@@ -25,5 +25,12 @@ public class ReferenceInspection extends _ELambdaInspectionBase {
                 holder.registerProblem(o.getUid(), "Constructor '" + o.getName() + "' undefined" );
             }
         }
+
+        @Override
+        public void visitLocalPattern(@NotNull LocalPattern o) {
+            if (o.getReference().resolve() == null) {
+                holder.registerProblem(o.getPatName(), "Constructor '" + o.getName() + "' undefined" );
+            }
+        }
     }
 }
