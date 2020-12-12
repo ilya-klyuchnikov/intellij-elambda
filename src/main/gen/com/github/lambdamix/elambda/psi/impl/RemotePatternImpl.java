@@ -10,6 +10,7 @@ import com.intellij.psi.util.PsiTreeUtil;
 import static com.github.lambdamix.elambda.ELambdaTypes.*;
 import com.intellij.extapi.psi.ASTWrapperPsiElement;
 import com.github.lambdamix.elambda.psi.*;
+import com.github.lambdamix.elambda.psi.reference.RemotePatternReference;
 
 public class RemotePatternImpl extends ASTWrapperPsiElement implements RemotePattern {
 
@@ -54,6 +55,11 @@ public class RemotePatternImpl extends ASTWrapperPsiElement implements RemotePat
   @Override
   public @NotNull String getName() {
     return ELambdaPsiImplUtil.getName(this);
+  }
+
+  @Override
+  public @NotNull RemotePatternReference getReference() {
+    return ELambdaPsiImplUtil.getReference(this);
   }
 
   @Override

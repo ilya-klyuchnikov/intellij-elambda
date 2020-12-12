@@ -63,6 +63,11 @@ public class ELambdaPsiImplUtil {
     }
 
     @NotNull
+    public static RemotePatternReference getReference(RemotePattern element) {
+        return new RemotePatternReference(element);
+    }
+
+    @NotNull
     public static String getName(RemoteTypeConstructor element) {
         return element.getCtrName().getText();
     }

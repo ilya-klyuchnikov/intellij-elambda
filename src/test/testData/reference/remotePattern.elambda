@@ -1,0 +1,2 @@
+unbox = lam (box) ->
+    case box of { remotePatternAux.<caret>Box(x) -> x; };

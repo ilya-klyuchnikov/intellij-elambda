@@ -4,6 +4,7 @@ package com.github.lambdamix.elambda.psi;
 import java.util.List;
 import org.jetbrains.annotations.*;
 import com.intellij.psi.PsiElement;
+import com.github.lambdamix.elambda.psi.reference.RemotePatternReference;
 
 public interface RemotePattern extends PsiElement {
 
@@ -20,6 +21,8 @@ public interface RemotePattern extends PsiElement {
   PsiElement getParRight();
 
   @NotNull String getName();
+
+  @NotNull RemotePatternReference getReference();
 
   @NotNull
   PsiElement getPatName();
