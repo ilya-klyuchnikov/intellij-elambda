@@ -1,0 +1,3 @@
+data Data() = Ctr(<error descr="Type variable 'a' undefined">a</error>);
+--- references to duplicate variables are not resolved
+data Box(a, a) = Box(<error descr="Type variable 'a' undefined">a</error>);

@@ -32,6 +32,14 @@
                 enabledByDefault="true"
                 level="ERROR"
                 implementationClass="com.github.lambdamix.elambda.inspection.RemoteVariableInspection"/>
+        <localInspection
+                language="elambda"
+                shortName="TypeVariables"
+                displayName="ELambda type variables"
+                groupName="ELambda"
+                enabledByDefault="true"
+                level="ERROR"
+                implementationClass="com.github.lambdamix.elambda.inspection.TypeVariableInspection"/>
     </extensions>
 
     <actions>
