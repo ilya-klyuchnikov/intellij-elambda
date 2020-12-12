@@ -34,6 +34,11 @@ public class ModImpl extends ASTWrapperPsiElement implements Mod {
   }
 
   @Override
+  public @NotNull String getName() {
+    return ELambdaPsiImplUtil.getName(this);
+  }
+
+  @Override
   @NotNull
   public PsiElement getModName() {
     return getLid();

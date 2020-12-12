@@ -27,6 +27,11 @@ public class ELambdaPsiImplUtil {
     }
 
     @NotNull
+    public static String getName(Mod element) {
+        return element.getModName().getText();
+    }
+
+    @NotNull
     public static String getName(LocalPattern element) {
         return element.getPatName().getText();
     }
