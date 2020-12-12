@@ -2,7 +2,6 @@ package com.github.lambdamix.elambda.inspection;
 
 import com.github.lambdamix.elambda.psi.ELambdaVisitor;
 import com.github.lambdamix.elambda.psi.RemoteVariableExpr;
-import com.github.lambdamix.elambda.psi.VariableExpr;
 import com.intellij.codeInspection.LocalInspectionToolSession;
 import com.intellij.codeInspection.ProblemsHolder;
 import org.jetbrains.annotations.NotNull;
