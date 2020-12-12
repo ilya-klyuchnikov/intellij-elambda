@@ -6,7 +6,7 @@ import com.intellij.codeInspection.LocalInspectionToolSession;
 import com.intellij.codeInspection.ProblemsHolder;
 import org.jetbrains.annotations.NotNull;
 
-public class UnboundVariableInspection extends _ELambdaInspectionBase {
+public class VariableInspection extends _ELambdaInspectionBase {
     @Override
     protected ELambdaVisitor buildELambdaVisitor(@NotNull ProblemsHolder holder, @NotNull LocalInspectionToolSession session) {
         return new ELambdaVisitor() {

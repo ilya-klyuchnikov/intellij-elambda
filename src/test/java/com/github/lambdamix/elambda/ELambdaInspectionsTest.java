@@ -1,6 +1,6 @@
 package com.github.lambdamix.elambda;
 
-import com.github.lambdamix.elambda.inspection.UnboundVariableInspection;
+import com.github.lambdamix.elambda.inspection.VariableInspection;
 import com.github.lambdamix.elambda.inspection._ELambdaInspectionBase;
 import com.intellij.testFramework.TestDataPath;
 import com.intellij.testFramework.fixtures.BasePlatformTestCase;
@@ -12,8 +12,8 @@ public class ELambdaInspectionsTest extends BasePlatformTestCase {
         return "src/test/testData/inspections";
     }
 
-    public void testUnboundVariables() {
-        testInspection(UnboundVariableInspection.class, false);
+    public void testVariables() {
+        testInspection(VariableInspection.class, false);
     }
 
     private void testInspection(Class<? extends _ELambdaInspectionBase> inspection, boolean aux) {

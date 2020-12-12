@@ -23,7 +23,7 @@
                 groupName="ELambda"
                 enabledByDefault="true"
                 level="ERROR"
-                implementationClass="com.github.lambdamix.elambda.inspection.UnboundVariableInspection"/>
+                implementationClass="com.github.lambdamix.elambda.inspection.VariableInspection"/>
     </extensions>
 
     <actions>
