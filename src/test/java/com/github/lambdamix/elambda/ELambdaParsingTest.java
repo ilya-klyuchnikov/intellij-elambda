@@ -1,7 +1,9 @@
 package com.github.lambdamix.elambda;
 
 import com.intellij.testFramework.ParsingTestCase;
+import com.intellij.testFramework.TestDataPath;
 
+@TestDataPath("$CONTENT_ROOT/testData/parsing")
 public class ELambdaParsingTest extends ParsingTestCase {
     public ELambdaParsingTest() {
         super("", "elambda", true, new ELambdaParserDefinition());

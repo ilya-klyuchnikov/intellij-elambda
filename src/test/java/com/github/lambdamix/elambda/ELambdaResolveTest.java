@@ -4,8 +4,10 @@ import com.github.lambdamix.elambda.psi.*;
 import com.github.lambdamix.elambda.psi.reference.*;
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.util.PsiTreeUtil;
+import com.intellij.testFramework.TestDataPath;
 import com.intellij.testFramework.fixtures.BasePlatformTestCase;
 
+@TestDataPath("$CONTENT_ROOT/testData/reference")
 public class ELambdaResolveTest extends BasePlatformTestCase {
 
     @Override
