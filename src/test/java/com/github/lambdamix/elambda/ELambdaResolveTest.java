@@ -5,6 +5,7 @@ import com.github.lambdamix.elambda.psi.reference.RemoteTypeConstructorReference
 import com.github.lambdamix.elambda.psi.reference.TypeConstructorReference;
 import com.github.lambdamix.elambda.psi.reference.TypeVariableReference;
 import com.intellij.psi.PsiElement;
+import com.intellij.psi.util.PsiTreeUtil;
 import com.intellij.testFramework.fixtures.BasePlatformTestCase;
 
 public class ELambdaResolveTest extends BasePlatformTestCase {
@@ -16,9 +17,9 @@ public class ELambdaResolveTest extends BasePlatformTestCase {
 
     public void testRemoteTypeConstructor() {
         myFixture.configureByFiles(getFileName(), getFileNameAux());
-        PsiElement id = myFixture.getFile().findElementAt(myFixture.getCaretOffset());
-        RemoteTypeId remoteTypeId = (RemoteTypeId) id.getParent();
-        RemoteTypeConstructor typeConstructor = (RemoteTypeConstructor) remoteTypeId.getParent();
+        PsiElement element = myFixture.getFile().findElementAt(myFixture.getCaretOffset());
+        RemoteTypeConstructor typeConstructor = PsiTreeUtil.getParentOfType(element, RemoteTypeConstructor.class);
+        assertNotNull(typeConstructor);
         RemoteTypeConstructorReference reference = typeConstructor.getReference();
         TypeDefinition typeDefinition = reference.resolve();
         assertNotNull(typeDefinition);
@@ -28,8 +29,9 @@ public class ELambdaResolveTest extends BasePlatformTestCase {
 
     public void testTypeConstructor() {
         myFixture.configureByFile(getFileName());
-        PsiElement id = myFixture.getFile().findElementAt(myFixture.getCaretOffset());
-        TypeConstructor typeConstructor = (TypeConstructor) id.getParent();
+        PsiElement element = myFixture.getFile().findElementAt(myFixture.getCaretOffset());
+        TypeConstructor typeConstructor = PsiTreeUtil.getParentOfType(element, TypeConstructor.class);
+        assertNotNull(typeConstructor);
         TypeConstructorReference reference = typeConstructor.getReference();
         TypeDefinition typeDefinition = reference.resolve();
         assertNotNull(typeDefinition);
@@ -38,8 +40,9 @@ public class ELambdaResolveTest extends BasePlatformTestCase {
 
     public void testTypeVariable() {
         myFixture.configureByFile(getFileName());
-        PsiElement id = myFixture.getFile().findElementAt(myFixture.getCaretOffset());
-        TypeVariable typeVariable = (TypeVariable) id.getParent();
+        PsiElement element = myFixture.getFile().findElementAt(myFixture.getCaretOffset());
+        TypeVariable typeVariable = PsiTreeUtil.getParentOfType(element, TypeVariable.class);
+        assertNotNull(typeVariable);
         TypeVariableReference reference = typeVariable.getReference();
         TypeVariableDef typeVariableDef = reference.resolve();
         assertNotNull(typeVariableDef);
