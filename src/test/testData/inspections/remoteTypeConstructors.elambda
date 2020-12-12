@@ -1,0 +1,3 @@
+data BoxWrap() = BoxWrap(remoteTypeConstructorsAux.Box());
+data BoxWrap2() = BoxWrap2(remoteTypeConstructorsAux.<error descr="Type 'remoteTypeConstructorsAux.Box2' undefined">Box2</error>());
+data BoxWrap3() = BoxWrap3(<error descr="Module 'remoteTypeConstructors3' undefined">remoteTypeConstructors3</error>.Box());
