@@ -13,13 +13,19 @@ public class ELambdaInspectionsTest extends BasePlatformTestCase {
     }
 
     public void testUnboundVariables() {
-        testInspection(UnboundVariableInspection.class);
+        testInspection(UnboundVariableInspection.class, false);
     }
 
-    private void testInspection(Class<? extends _ELambdaInspectionBase> inspection) {
+    private void testInspection(Class<? extends _ELambdaInspectionBase> inspection, boolean aux) {
         //noinspection unchecked
         myFixture.enableInspections(inspection);
-        myFixture.configureByFile(getTestName(true) + ".elambda");
+        if (aux) {
+            String mainFile = getTestName(true) + ".elambda";
+            String auxFile = getTestName(true) + "Aux.elambda";
+            myFixture.configureByFiles(mainFile, auxFile);
+        } else {
+            myFixture.configureByFile(getTestName(true) + ".elambda");
+        }
         myFixture.checkHighlighting();
     }
 }
