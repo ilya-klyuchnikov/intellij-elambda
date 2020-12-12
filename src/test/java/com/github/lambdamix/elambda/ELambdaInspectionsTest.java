@@ -40,7 +40,7 @@ public class ELambdaInspectionsTest extends BasePlatformTestCase {
     }
 
     public void testTypeVariables() {
-        testInspection(TypeVariableInspection.class, false);
+        testInspection(ReferenceInspection.class, false);
     }
 
     public void testVariables() {
