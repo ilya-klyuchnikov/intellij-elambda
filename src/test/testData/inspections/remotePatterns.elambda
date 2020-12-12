@@ -1,0 +1,2 @@
+unknownCtr = lam (x) -> case x of { remotePatternsAux.<error descr="Constructor 'remotePatternsAux.UnknownCtr' undefined">UnknownCtr</error>() -> KnownCtr(); };
+unknownMod = lam (x) -> case x of { <error descr="Module 'unknown' undefined">unknown</error>.UnknownCtr() -> KnownCtr(); };

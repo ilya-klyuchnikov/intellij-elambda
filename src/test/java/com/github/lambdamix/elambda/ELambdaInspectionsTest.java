@@ -23,6 +23,10 @@ public class ELambdaInspectionsTest extends BasePlatformTestCase {
         testInspection(RemoteConstructorExprInspection.class, true);
     }
 
+    public void testRemotePatterns() {
+        testInspection(RemotePatternInspection.class, true);
+    }
+
     public void testRemoteTypeConstructors() {
         testInspection(RemoteTypeConstructorInspection.class, true);
     }
