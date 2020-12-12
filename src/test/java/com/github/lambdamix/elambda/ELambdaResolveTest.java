@@ -1,11 +1,7 @@
 package com.github.lambdamix.elambda;
 
 import com.github.lambdamix.elambda.psi.*;
-import com.github.lambdamix.elambda.psi.reference.RemoteTypeConstructorReference;
-import com.github.lambdamix.elambda.psi.reference.RemoteVariableExprReference;
-import com.github.lambdamix.elambda.psi.reference.TypeConstructorReference;
-import com.github.lambdamix.elambda.psi.reference.TypeVariableReference;
-import com.github.lambdamix.elambda.psi.reference.VariableExprReference;
+import com.github.lambdamix.elambda.psi.reference.*;
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.util.PsiTreeUtil;
 import com.intellij.testFramework.fixtures.BasePlatformTestCase;
