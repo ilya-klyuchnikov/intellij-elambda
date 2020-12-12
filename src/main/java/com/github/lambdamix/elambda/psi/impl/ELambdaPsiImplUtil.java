@@ -4,6 +4,7 @@ import com.github.lambdamix.elambda.psi.*;
 import com.github.lambdamix.elambda.psi.reference.RemoteTypeConstructorReference;
 import com.github.lambdamix.elambda.psi.reference.TypeConstructorReference;
 import com.github.lambdamix.elambda.psi.reference.TypeVariableReference;
+import com.github.lambdamix.elambda.psi.reference.VariableExprReference;
 import com.intellij.openapi.util.TextRange;
 import com.intellij.psi.PsiElement;
 import org.jetbrains.annotations.NotNull;
@@ -84,6 +85,11 @@ public class ELambdaPsiImplUtil {
     @NotNull
     public static String getName(VariableExpr element) {
         return element.getVarName().getText();
+    }
+
+    @NotNull
+    public static VariableExprReference getReference(@NotNull VariableExpr element) {
+        return new VariableExprReference(element);
     }
 
     /// Utils

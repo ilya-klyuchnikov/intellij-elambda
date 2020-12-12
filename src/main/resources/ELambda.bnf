@@ -122,6 +122,7 @@ remote_variable_expr ::= mod '.' LID {
 variable_expr ::= LID {
     methods=[
         getName
+        getReference
         varName="/LID"
     ]
 }

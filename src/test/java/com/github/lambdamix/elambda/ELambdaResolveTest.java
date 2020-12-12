@@ -4,9 +4,12 @@ import com.github.lambdamix.elambda.psi.*;
 import com.github.lambdamix.elambda.psi.reference.RemoteTypeConstructorReference;
 import com.github.lambdamix.elambda.psi.reference.TypeConstructorReference;
 import com.github.lambdamix.elambda.psi.reference.TypeVariableReference;
+import com.github.lambdamix.elambda.psi.reference.VariableExprReference;
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.util.PsiTreeUtil;
 import com.intellij.testFramework.fixtures.BasePlatformTestCase;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 public class ELambdaResolveTest extends BasePlatformTestCase {
 
@@ -47,6 +50,29 @@ public class ELambdaResolveTest extends BasePlatformTestCase {
         TypeVariableDef typeVariableDef = reference.resolve();
         assertNotNull(typeVariableDef);
         assertEquals(typeVariable.getName(), typeVariableDef.getName());
+    }
+
+    public void testVariableExpr01() {
+        doTestVariableExpr();
+    }
+
+    public void testVariableExpr02() {
+        doTestVariableExpr();
+    }
+
+    public void testVariableExpr03() {
+        doTestVariableExpr();
+    }
+
+    private void doTestVariableExpr() {
+        myFixture.configureByFile(getFileName());
+        PsiElement element = myFixture.getFile().findElementAt(myFixture.getCaretOffset());
+        VariableExpr variableExpr = PsiTreeUtil.getParentOfType(element, VariableExpr.class);
+        assertNotNull(variableExpr);
+        VariableExprReference reference = variableExpr.getReference();
+        Variable variable = reference.resolve();
+        assertNotNull(variable);
+        assertEquals(variableExpr.getName(), variable.getName());
     }
 
     private String getFileName() {
